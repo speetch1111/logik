@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка товара</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="container">
+                <div class="header__flex">
+                    <div class="header__logo">
+                        <a href="#!">
+                            <img src="images/logo.svg" alt="">
+                        </a>
+                    </div>
+                    <nav class="header__nav">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a class="nav__link" href="#!">Главная</a></li>
+                            <li class="nav__item"><a class="nav__link" href="#!">Каталог</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header__actions">
+                        <button class="header__new icon__parent">
+                            <span class="icon">
+                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.25 10.5C0.25 5.11704 4.61704 0.75 10 0.75C15.383 0.75 19.75 5.11704 19.75 10.5C19.75 15.883 15.383 20.25 10 20.25C4.61704 20.25 0.25 15.883 0.25 10.5ZM10 2.25C5.44546 2.25 1.75 5.94546 1.75 10.5C1.75 15.0545 5.44546 18.75 10 18.75C14.5545 18.75 18.25 15.0545 18.25 10.5C18.25 5.94546 14.5545 2.25 10 2.25Z"
+                                        fill="#1D1F1B" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10 6C10.4142 6 10.75 6.33579 10.75 6.75V14.25C10.75 14.6642 10.4142 15 10 15C9.58579 15 9.25 14.6642 9.25 14.25V6.75C9.25 6.33579 9.58579 6 10 6Z"
+                                        fill="#1D1F1B" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.5 10.5C5.5 10.0858 5.83579 9.75 6.25 9.75H13.75C14.1642 9.75 14.5 10.0858 14.5 10.5C14.5 10.9142 14.1642 11.25 13.75 11.25H6.25C5.83579 11.25 5.5 10.9142 5.5 10.5Z"
+                                        fill="#1D1F1B" />
+                                </svg>
+                            </span>
+                            <span>Разместить объявление</span>
+                        </button>
+                        <a href="#!" class="header__wishlist icon__parent">
+                            <span class="icon">
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.25052 5.78028C0.279759 2.92838 2.54537 0.5 5.45736 0.5C7.24474 0.5 8.5595 1.38475 9.39852 2.21777C9.63213 2.44972 9.83261 2.68108 10.0005 2.89441C10.1684 2.68108 10.3688 2.44972 10.6024 2.21777C11.4415 1.38475 12.7562 0.5 14.5436 0.5C17.4556 0.5 19.7212 2.92838 19.7504 5.78028C19.8059 11.3425 15.3366 15.1908 10.8442 18.2403C10.5954 18.4095 10.3014 18.5001 10.0005 18.5001C9.69954 18.5001 9.40555 18.4095 9.15673 18.2403C4.66392 15.1908 0.194556 11.3426 0.25052 5.78028ZM10.6704 4.58725C10.543 4.84027 10.2839 5 10.0005 5C9.7171 5 9.45798 4.84029 9.3306 4.58729C9.33044 4.58698 9.33014 4.58638 9.32968 4.5855C9.32877 4.58372 9.32725 4.58081 9.32513 4.5768C9.32401 4.57467 9.32272 4.57223 9.32126 4.5695C9.31283 4.5537 9.2988 4.52796 9.27919 4.4937C9.23991 4.42508 9.17855 4.32288 9.09521 4.19831C8.92769 3.94793 8.67595 3.61413 8.34166 3.28223C7.6699 2.61525 6.71309 2 5.45736 2C3.42314 2 1.7719 3.70966 1.75044 5.79551M10.6704 4.58725C10.6705 4.58694 10.6708 4.58635 10.6713 4.5855C10.6727 4.58278 10.6755 4.57739 10.6797 4.5695C10.6881 4.5537 10.7022 4.52796 10.7218 4.4937C10.7611 4.42508 10.8224 4.32288 10.9058 4.19831C11.0733 3.94793 11.325 3.61413 11.6593 3.28223C12.3311 2.61525 13.2879 2 14.5436 2C16.5778 2 18.229 3.70963 18.2505 5.79545C18.2972 10.4826 14.5329 13.9235 10.0011 16.9996L9.99979 16.9996C5.46757 13.9235 1.70336 10.4825 1.75044 5.79551"
+                                        fill="#1D1F1B" />
+                                </svg>
+                            </span>
+                            <span>
+                                Избранное
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <!-- main -->
+    <main>
+
+        <!-- breadcrumbs -->
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="#!">Главная</a></li>
+                <li><a href="#!">Каталог</a></li>
+                <li><span>Название дома</span></li>
+            </ul>
+        </div>
+        <!-- breadcrumbs -->
+
+        <!-- product-card -->
+        <section class="product-card">
+            <div class="container">
+                <div class="product-card__top">
+                    <h1>
+                        Название дома
+                    </h1>
+                    <div class="product-card__wishlist">
+                        <button class="icon__parent">
+                            <span>Добавить в избранное</span>
+                            <span class="icon"><svg width="26" height="24" viewBox="0 0 26 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.000693523 7.04037C0.039679 3.23784 3.0605 0 6.94314 0C9.32632 0 11.0793 1.17966 12.198 2.29037C12.5095 2.59962 12.7768 2.90811 13.0006 3.19255C13.2245 2.90811 13.4918 2.59962 13.8033 2.29037C14.9219 1.17966 16.675 0 19.0581 0C22.9408 0 25.9616 3.23784 26.0006 7.04037C26.0745 14.4567 20.1154 19.5878 14.1256 23.6537C13.7939 23.8794 13.4019 24.0001 13.0006 24.0001C12.5994 24.0001 12.2074 23.8794 11.8756 23.6537C5.88522 19.5878 -0.073925 14.4568 0.000693523 7.04037ZM13.8938 5.44967C13.724 5.78703 13.3785 6 13.0006 6C12.6228 6 12.2773 5.78705 12.1075 5.44972C12.1073 5.4493 12.1068 5.4485 12.1062 5.44733C12.105 5.44497 12.103 5.44108 12.1002 5.43573C12.0987 5.43289 12.097 5.42964 12.095 5.426C12.0838 5.40494 12.0651 5.37062 12.0389 5.32493C11.9865 5.23344 11.9047 5.09717 11.7936 4.93108C11.5702 4.59723 11.2346 4.15217 10.7889 3.70963C9.89319 2.82034 8.61746 2 6.94314 2C4.23085 2 2.0292 4.27955 2.00059 7.06069M13.8938 5.44967C13.8941 5.44925 13.8945 5.44846 13.895 5.44733C13.8969 5.44371 13.9007 5.43652 13.9063 5.426C13.9175 5.40494 13.9362 5.37062 13.9624 5.32494C14.0147 5.23344 14.0965 5.09717 14.2077 4.93108C14.431 4.59723 14.7667 4.15217 15.2124 3.70963C16.1081 2.82034 17.3838 2 19.0581 2C21.7704 2 23.972 4.2795 24.0007 7.06059C24.063 13.3101 19.0439 17.898 13.0015 21.9995L12.9997 21.9995C6.95676 17.898 1.93782 13.3101 2.00059 7.06069"
+                                        fill="#1D1F1B" />
+                                </svg></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card__flex">
+                    <div class="product__gallery-wrap">
+                        <div class="product__gallery gallery">
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__gallery"
+                                    data-src="images/product-card-img.jpg"
+                                    style="background-image: url(images/product-card-img.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__gallery"
+                                    data-src="images/card-img-1.jpg"
+                                    style="background-image: url(images/card-img-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__gallery"
+                                    data-src="images/card-img-2.jpg"
+                                    style="background-image: url(images/card-img-2.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__gallery"
+                                    data-src="images/card-img-1.jpg"
+                                    style="background-image: url(images/card-img-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__gallery"
+                                    data-src="images/card-img-2.jpg"
+                                    style="background-image: url(images/card-img-2.jpg)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__nav product__gallery-nav">
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-2.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-2.jpg)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <div class="product-card__info">
+                            <div class="info__item">
+                                <div class="info__img">
+                                    <img src="images/pc-info-icon-1.svg" alt="">
+                                </div>
+                                <div class="info__content">
+                                    <div class="info__title">
+                                        Площадь
+                                    </div>
+                                    <div class="info__text">
+                                        30 м<sup>2</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info__item">
+                                <div class="info__img">
+                                    <img src="images/pc-info-icon-2.svg" alt="">
+                                </div>
+                                <div class="info__content">
+                                    <div class="info__title">
+                                        Кол-во этажей
+                                    </div>
+                                    <div class="info__text">
+                                        2
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info__item">
+                                <div class="info__img">
+                                    <img src="images/pc-info-icon-3.svg" alt="">
+                                </div>
+                                <div class="info__content">
+                                    <div class="info__title">
+                                        Кол-во комнат
+                                    </div>
+                                    <div class="info__text">
+                                        4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__video">
+                            <a href="#!">
+                                Посмотреть видео-обзор
+                            </a>
+                        </div>
+                        <div class="product-card__price">
+                            от 1 500 000
+                            <span>
+                                <svg width="19" height="24" viewBox="0 0 19 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.5357 0H2.71429V12H0V14.6667H2.71429V17.3333H0V20H2.71429V24H5.42857V20H10.8571V17.3333H5.42857V14.6667H11.5357C15.6614 14.6667 19 11.3867 19 7.33333C19 3.28 15.6614 0 11.5357 0ZM11.5357 12H5.42857V2.66667H11.5357C14.155 2.66667 16.2857 4.76 16.2857 7.33333C16.2857 9.90667 14.155 12 11.5357 12Z"
+                                        fill="#1D1F1B" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="product-card__btn">
+                            <button class="btn open-popup" data-popup="popup__order">Связаться с подрядчиком</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- product-card -->
+
+        <!-- product-card__descr -->
+        <section class="product-card__descr">
+            <div class="container">
+                <div class="description__flex">
+                    <div class="description__content">
+                        <h2 class="section__title description__title">
+                            Описание
+                        </h2>
+                        <div class="description__text">
+                            <p>Этот современный модульный дом сочетает в себе комфорт, функциональность и эстетику.
+                                Благодаря продуманному дизайну и использованию качественных материалов, он идеально
+                                подходит как для постоянного проживания, так и для сезонного отдыха. Дом оснащён всеми
+                                необходимыми коммуникациями и оборудован удобной планировкой, обеспечивающей
+                                максимальное удобство и уют. Отличительной особенностью является возможность быстрой
+                                сборки и установки на участке, что позволяет значительно сократить сроки строительства.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="description__gallery">
+                        <div class="product__gallery gallery">
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__plan"
+                                    data-src="images/product-plan.jpg"
+                                    style="background-image: url(images/product-plan.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__plan"
+                                    data-src="images/product-plan.jpg"
+                                    style="background-image: url(images/product-plan.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__plan" data-src="images/card-img-2.jpg"
+                                    style="background-image: url(images/card-img-2.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__plan" data-src="images/card-img-1.jpg"
+                                    style="background-image: url(images/card-img-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img" data-fancybox="product__plan" data-src="images/card-img-2.jpg"
+                                    style="background-image: url(images/card-img-2.jpg)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__nav product__gallery-nav">
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-2.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-1.jpg)">
+                                </div>
+                            </div>
+                            <div class="nav__item">
+                                <div class="nav__img" style="background-image: url(images/product-card-img-min-2.jpg)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- product-card__descr -->
+
+        <!-- product-card__cost -->
+        <section class="product-card__cost">
+            <div class="container">
+                <h2 class="section__title cost__title">
+                    Стоимость
+                </h2>
+                <div class="cost__grid">
+                    <div class="cost__item">
+                        <div class="cost__item-title">
+                            Чистовая отделка
+                        </div>
+                        <div class="cost__item-text">
+                            <p>
+                                Чистовая отделка в квартире предполагает готовую финишную отделку:
+                            </p>
+                            <ul>
+                                <li>обои</li>
+                                <li>линолеум или ламинат на полу</li>
+                                <li>побелку потолка</li>
+                                <li>укладку плитки и установку радиаторов и сантехники</li>
+                            </ul>
+                        </div>
+                        <div class="cost__item-value">
+                            2 500 000
+                            <span>
+                                <svg width="19" height="24" viewBox="0 0 19 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.5357 0H2.71429V12H0V14.6667H2.71429V17.3333H0V20H2.71429V24H5.42857V20H10.8571V17.3333H5.42857V14.6667H11.5357C15.6614 14.6667 19 11.3867 19 7.33333C19 3.28 15.6614 0 11.5357 0ZM11.5357 12H5.42857V2.66667H11.5357C14.155 2.66667 16.2857 4.76 16.2857 7.33333C16.2857 9.90667 14.155 12 11.5357 12Z"
+                                        fill="#1D1F1B" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cost__item cost__item--primary">
+                        <div class="cost__item-title">
+                            Под ключ
+                        </div>
+                        <div class="cost__item-text">
+                            <p>
+                                В отделке «под ключ» добавляется кухонный гарнитур или его часть, может быть выполнена
+                                полная меблировка квартиры
+                            </p>
+
+                        </div>
+                        <div class="cost__item-value">
+                            от 1 800 000
+                            <span>
+                                <svg width="19" height="24" viewBox="0 0 19 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.5357 0H2.71429V12H0V14.6667H2.71429V17.3333H0V20H2.71429V24H5.42857V20H10.8571V17.3333H5.42857V14.6667H11.5357C15.6614 14.6667 19 11.3867 19 7.33333C19 3.28 15.6614 0 11.5357 0ZM11.5357 12H5.42857V2.66667H11.5357C14.155 2.66667 16.2857 4.76 16.2857 7.33333C16.2857 9.90667 14.155 12 11.5357 12Z"
+                                        fill="#1D1F1B" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- product-card__cost -->
+
+        <!-- product-card__properties -->
+        <section class="product-card__properties">
+            <div class="container">
+                <div class="properties__box">
+                    <h3 class="properties__title">
+                        Конструктив
+                    </h3>
+                    <div class="properties__grid">
+                        <div class="properties__column">
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Каркас
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Дерево
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Электрика
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Материал - название
+                                    </p>
+                                    <p>
+                                        Производитель - название
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="properties__column">
+                            <div class="properties__item no-info">
+                                <div class="properties__item-title">
+                                    Двери наружные и внутренние
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Информация отсутствует
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="properties__column">
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Возможные дополнительные опции
+                                </div>
+                                <div class="properties__item-text">
+                                    <ul>
+                                        <li>Встроенная кухня</li>
+                                        <li>Ванная комната под ключ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="properties__box">
+                    <h3 class="properties__title">
+                        Конструктив
+                    </h3>
+                    <div class="properties__grid">
+                        <div class="properties__column">
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Срок изготовления изделия
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        С момента заключения договора
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Электрика
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Материал - название
+                                    </p>
+                                    <p>
+                                        Производитель - название
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="properties__column">
+                            <div class="properties__item no-info">
+                                <div class="properties__item-title">
+                                    Двери наружные и внутренние
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Информация отсутствует
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="properties__column">
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Возможные дополнительные опции
+                                </div>
+                                <div class="properties__item-text">
+                                    <ul>
+                                        <li>Встроенная кухня</li>
+                                        <li>Ванная комната под ключ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="properties__box">
+                    <h3 class="properties__title">
+                        Конструктив
+                    </h3>
+                    <div class="properties__grid">
+                        <div class="properties__column">
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Каркас
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Дерево
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Электрика
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Материал - название
+                                    </p>
+                                    <p>
+                                        Производитель - название
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="properties__column">
+                            <div class="properties__item no-info">
+                                <div class="properties__item-title">
+                                    Двери наружные и внутренние
+                                </div>
+                                <div class="properties__item-text">
+                                    <p>
+                                        Информация отсутствует
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="properties__column">
+                            <div class="properties__item">
+                                <div class="properties__item-title">
+                                    Возможные дополнительные опции
+                                </div>
+                                <div class="properties__item-text">
+                                    <ul>
+                                        <li>Встроенная кухня</li>
+                                        <li>Ванная комната под ключ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- product-card__properties -->
+
+        <!-- reviews -->
+        <section class="reviews">
+            <div class="container">
+                <div class="reviews__wrap">
+                    <h2 class="reviews__title section__title">
+                        Отзывы
+                    </h2>
+                    <div class="reviews__box">
+                        <div style="height:800px;overflow:hidden;position:relative;"><iframe
+                                style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+                                src="https://yandex.ru/maps-reviews-widget/226327670406?comments"></iframe><a
+                                href="https://yandex.ru/maps/org/usadba_izmaylovo/226327670406/" target="_blank"
+                                style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Усадьба
+                                Измайлово на карте Москвы — Яндекс Карты</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- reviews -->
+
+        <!-- form -->
+        <section class="order">
+            <div class="container">
+                <div class="order__inner">
+                    <div class="order__content">
+                        <h2 class="section__title order__title">
+                            У вас крупный заказ?
+                        </h2>
+                        <div class="order__text">
+                            <p>
+                                Свяжитесь с нами, и мы поможем выбрать лучшие компании, распределим заказ
+                                между производителями и обеспечим его выполнение в кратчайшие сроки. Заполните форму,
+                                и наш менеджер свяжется с вами для обсуждения деталей.
+                            </p>
+                        </div>
+                        <form action="#!">
+                            <div class="form__inner">
+                                <div class="form__field w50">
+                                    <label>
+                                        <span class="placeholder">Имя</span>
+                                        <input type="text" required>
+                                    </label>
+                                </div>
+                                <div class="form__field w50">
+                                    <label>
+                                        <span class="placeholder">Телефон</span>
+                                        <input type="tel" required>
+                                    </label>
+                                </div>
+                                <div class="form__field">
+                                    <label>
+                                        <span class="placeholder">Краткое описание задачи (объем заказа, назначение,
+                                            сроки)</span>
+                                        <textarea></textarea>
+                                    </label>
+                                </div>
+                                <div class="form__field">
+                                    <button type="submit" class="btn">
+                                        Оставить заявку
+                                    </button>
+                                </div>
+                                <div class="form__field">
+                                    <label class="check">
+                                        <input class="check__input" type="checkbox" required>
+                                        <span class="check__box"></span>
+                                        <span class="check__name">Нажимая на кнопку, <a href="#!">я принимаю условия
+                                                соглашения</a></span>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="order__img">
+                        <img src="images/order-img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- form -->
+
+
+    </main>
+    <!-- main -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__flex">
+                <div class="footer__column">
+                    <div class="footer__logo">
+                        <img src="images/logo.svg" alt="">
+                    </div>
+                    <div class="footer__text">
+                        <p>Компания «Название» известна на строительном рынке Нижнего Новгорода и области с 2014 года.
+                            Основная специализация заключается в строительстве загородных коттеджей, бань и малоэтажных
+                            построек прочего характера.</p>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <div class="footer__column-title">
+                        Меню
+                    </div>
+                    <ul class="footer__nav">
+                        <li><a href="#!">Главная</a></li>
+                        <li><a href="#!">Каталог</a></li>
+                        <li><a href="#!">Контакты</a></li>
+                        <li><a href="#!">Избранное</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <div class="footer__column-title">
+                        Контакты
+                    </div>
+                    <ul class="footer__contacts">
+                        <li class="icon__parent">
+                            <span class="icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M3.75 7.22656C3.75 3.89896 6.57899 1.25 10 1.25C13.421 1.25 16.25 3.89896 16.25 7.22656C16.25 9.10252 15.2357 11.4235 14.1246 13.4296C12.9969 15.4658 11.6981 17.3003 11.0016 18.2409C10.8867 18.398 10.7364 18.5259 10.5629 18.6142C10.3885 18.7029 10.1957 18.7492 10 18.7492C9.80434 18.7492 9.61146 18.7029 9.43708 18.6142C9.26356 18.5259 9.11327 18.398 8.99834 18.2408C8.30187 17.2999 7.0031 15.4647 5.87536 13.4283C4.76432 11.422 3.75 9.10119 3.75 7.22656ZM10 2.5C7.21007 2.5 5 4.64713 5 7.22656C5 8.75037 5.86068 10.8215 6.96888 12.8227C8.05739 14.7883 9.3182 16.5716 10 17.493C10.6818 16.5721 11.9426 14.7894 13.0311 12.824C14.1393 10.8232 15 8.75177 15 7.22656C15 4.64713 12.7899 2.5 10 2.5Z"
+                                        fill="#1D1F1B" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10 6.25C9.30964 6.25 8.75 6.80964 8.75 7.5C8.75 8.19036 9.30964 8.75 10 8.75C10.6904 8.75 11.25 8.19036 11.25 7.5C11.25 6.80964 10.6904 6.25 10 6.25ZM7.5 7.5C7.5 6.11929 8.61929 5 10 5C11.3807 5 12.5 6.11929 12.5 7.5C12.5 8.88071 11.3807 10 10 10C8.61929 10 7.5 8.88071 7.5 7.5Z"
+                                        fill="#1D1F1B" />
+                                </svg>
+                            </span>
+                            <span>Нижний Новгород</span>
+                        </li>
+                        <li>
+                            <a class="icon__parent" href="tel:+79018713624">
+                                <span class="icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.34677 1.52758C5.4778 1.63049 5.62497 1.76894 5.79428 1.93617C6.15701 2.29318 6.57784 2.86517 6.93895 3.41427C7.3041 3.96954 7.64245 4.55407 7.8321 4.96091C7.93959 5.19207 8.03672 5.40207 8.10483 5.58567C8.17399 5.77211 8.23146 5.97719 8.23183 6.20098C8.23261 6.66944 7.97834 7.03099 7.73342 7.36447C7.66305 7.46026 7.60327 7.53877 7.55174 7.60643C7.44067 7.75228 7.36786 7.84789 7.30957 7.95847C7.25271 8.06633 7.23611 8.1442 7.26303 8.26957C7.30183 8.45034 7.47054 8.84604 7.79814 9.36369C8.11496 9.86431 8.54874 10.429 9.06702 10.9456C9.58518 11.4621 10.1409 11.8845 10.6315 12.1901C11.1371 12.505 11.5264 12.6666 11.7124 12.7063C11.8418 12.7339 11.9226 12.7166 12.0307 12.6604C12.1447 12.601 12.2462 12.5236 12.4039 12.4032C12.4659 12.3558 12.5366 12.3019 12.6201 12.2398L12.6265 12.235C12.9612 11.9864 13.3329 11.7102 13.8042 11.7107C14.037 11.7109 14.246 11.7767 14.43 11.8518C14.6058 11.9235 14.8077 12.0253 15.0293 12.1369L15.0478 12.1462C15.4361 12.342 16.0135 12.6737 16.5724 13.0353C17.1215 13.3905 17.7008 13.8052 18.0616 14.1687C18.2293 14.3381 18.3686 14.4858 18.4718 14.6167C18.5716 14.7435 18.6812 14.9075 18.7275 15.1116C18.7795 15.3414 18.7323 15.5326 18.6839 15.6652C18.6621 15.725 18.6364 15.7824 18.6179 15.8234C18.615 15.8298 18.6122 15.8361 18.6095 15.8422C18.5923 15.8803 18.5773 15.9135 18.5614 15.9515L18.561 15.9525L18.5606 15.9534C18.3974 16.3405 18.1988 16.7118 17.9674 17.0625L17.9667 17.0636L17.966 17.0646C17.5138 17.744 17.0884 18.1878 16.4272 18.4958C16.0836 18.6559 15.5926 18.8175 14.8296 18.7224C14.0958 18.6309 13.141 18.3059 11.838 17.5761C9.75275 16.4067 8.30556 15.3983 6.43914 13.5371C4.5782 11.6813 3.6635 10.4701 2.38216 8.14238C1.0922 5.79898 1.09405 4.35388 1.46243 3.5667C1.77173 2.90576 2.22004 2.48234 2.8971 2.03251L2.89844 2.03163L2.89977 2.03075C3.25087 1.80007 3.62235 1.60204 4.00956 1.43912L4.01084 1.43858L4.01212 1.43805C4.05044 1.42213 4.08396 1.4071 4.12228 1.38992C4.12829 1.38723 4.13441 1.38448 4.1407 1.38167C4.18187 1.36324 4.2393 1.33763 4.29904 1.31592C4.43148 1.26782 4.62229 1.22083 4.85168 1.27255C5.05563 1.31854 5.21971 1.42778 5.34677 1.52758ZM4.49316 2.59178C4.1772 2.72481 3.87405 2.8864 3.58748 3.07457C3.01551 3.45473 2.77031 3.72103 2.59459 4.09652C2.47782 4.34606 2.2617 5.33142 3.47721 7.53959C4.70133 9.7634 5.54445 10.8796 7.32179 12.6519C9.09355 14.4188 10.4443 15.3613 12.4488 16.4855C13.6754 17.1725 14.4706 17.4179 14.9843 17.482C15.4689 17.5424 15.7231 17.4448 15.8994 17.3627C16.2778 17.1864 16.5453 16.943 16.9248 16.3729C17.1134 16.0869 17.2754 15.7841 17.4086 15.4684C17.4265 15.4254 17.4442 15.3857 17.459 15.3526C17.4008 15.2834 17.3115 15.1877 17.1741 15.049C16.9145 14.7875 16.4327 14.4337 15.8934 14.0848C15.364 13.7423 14.8259 13.4342 14.4852 13.2625C14.2394 13.1386 14.0819 13.0598 13.9576 13.0091C13.8366 12.9597 13.8015 12.9607 13.8029 12.9607C13.8142 12.9607 13.7755 12.9386 13.3657 13.2431C13.3238 13.2742 13.2786 13.3089 13.2307 13.3456C13.0481 13.4856 12.8269 13.6551 12.6079 13.7692C12.2805 13.9396 11.9047 14.0254 11.4517 13.9288C11.0552 13.8442 10.5205 13.5936 9.97063 13.2511C9.4058 12.8993 8.77458 12.4191 8.18454 11.8309C7.59461 11.2428 7.10378 10.604 6.74189 10.0321C6.39078 9.47734 6.12667 8.93163 6.04087 8.53193C5.94317 8.07683 6.03225 7.70099 6.2038 7.37555C6.31436 7.16584 6.47962 6.94915 6.61564 6.77081C6.65566 6.71834 6.69315 6.66918 6.72597 6.6245C6.98871 6.26676 6.98254 6.20974 6.98187 6.20352C6.98185 6.20331 6.98187 6.20362 6.98187 6.20352C6.98185 6.19147 6.97903 6.14487 6.93286 6.0204C6.88564 5.89311 6.81213 5.73201 6.69896 5.48864C6.54441 5.15718 6.24146 4.62863 5.89454 4.10109C5.5436 3.56744 5.18164 3.08696 4.91714 2.82675L4.91625 2.82587C4.77668 2.68801 4.6807 2.59867 4.6114 2.54051C4.57773 2.55556 4.53715 2.57348 4.49316 2.59178Z"
+                                            fill="#1E293B" />
+                                    </svg>
+                                </span>
+                                <span>+7 (901) 871-36-24</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="icon__parent" href="mailto:chocolora@yandex.ru">
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M4.125 5.25C3.50368 5.25 3 5.75368 3 6.375V17.625C3 18.2463 3.50368 18.75 4.125 18.75H19.875C20.4963 18.75 21 18.2463 21 17.625V6.375C21 5.75368 20.4963 5.25 19.875 5.25H4.125ZM1.5 6.375C1.5 4.92525 2.67525 3.75 4.125 3.75H19.875C21.3247 3.75 22.5 4.92525 22.5 6.375V17.625C22.5 19.0747 21.3247 20.25 19.875 20.25H4.125C2.67525 20.25 1.5 19.0747 1.5 17.625V6.375Z"
+                                            fill="#1D1F1B" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M4.65802 7.03958C4.91232 6.71262 5.38353 6.65372 5.71049 6.90802L12 11.7999L18.2896 6.90802C18.6165 6.65372 19.0877 6.71262 19.342 7.03958C19.5964 7.36654 19.5375 7.83775 19.2105 8.09205L12.4605 13.342C12.1897 13.5527 11.8104 13.5527 11.5396 13.342L4.78958 8.09205C4.46262 7.83775 4.40372 7.36654 4.65802 7.03958Z"
+                                            fill="#1D1F1B" />
+                                    </svg>
+                                </span>
+                                <span>chocolora@yandex.ru</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="footer__social">
+                        <li>
+                            <a href="#!">
+                                <svg width="29" height="29" viewBox="0 0 29 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.335 0C6.42208 0 0 6.42208 0 14.335C0 22.2479 6.42208 28.67 14.335 28.67C22.2479 28.67 28.67 22.2479 28.67 14.335C28.67 6.42208 22.2479 0 14.335 0ZM20.9864 9.7478C20.7714 12.0127 19.8396 17.5174 19.3666 20.0547C19.1659 21.1298 18.7645 21.4882 18.3918 21.5312C17.5604 21.6028 16.9296 20.9864 16.1269 20.456C14.8654 19.6246 14.1486 19.1086 12.9302 18.3058C11.511 17.374 12.4284 16.858 13.2455 16.0265C13.4606 15.8115 17.1303 12.4714 17.202 12.1704C17.212 12.1248 17.2106 12.0775 17.1981 12.0325C17.1856 11.9876 17.1624 11.9463 17.1303 11.9124C17.0443 11.8407 16.9296 11.8694 16.8293 11.8837C16.7003 11.9124 14.6934 13.2455 10.7799 15.8832C10.2065 16.2702 9.69046 16.4709 9.23174 16.4566C8.71568 16.4422 7.7409 16.1699 7.00982 15.9262C6.10671 15.6395 5.40429 15.4818 5.46164 14.9801C5.4903 14.722 5.84868 14.464 6.52243 14.1917C10.7082 12.3711 13.4892 11.167 14.8797 10.5936C18.8649 8.93071 19.682 8.644 20.2267 8.644C20.3414 8.644 20.6137 8.67268 20.7858 8.81602C20.9291 8.93071 20.9721 9.08839 20.9864 9.20307C20.9721 9.28908 21.0008 9.54711 20.9864 9.7478Z"
+                                        fill="#787876" />
+                                </svg>
+                                Телеграм
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!">
+                                <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.12 0C6.76935 0 0 6.76935 0 15.12C0 23.4706 6.76935 30.24 15.12 30.24C23.4706 30.24 30.24 23.4706 30.24 15.12C30.24 6.76935 23.4706 0 15.12 0ZM20.9349 17.0588C20.9349 17.0588 22.2721 18.3787 22.6012 18.9914C22.6107 19.005 22.6165 19.0155 22.6186 19.0229C22.7519 19.2465 22.785 19.4234 22.7178 19.5536C22.6075 19.771 22.2295 19.8781 22.1004 19.8875H19.7379C19.5741 19.8875 19.2307 19.845 18.8149 19.5583C18.4952 19.3347 18.1802 18.9677 17.8731 18.6102C17.4148 18.0778 17.0179 17.618 16.6178 17.618C16.567 17.6177 16.5165 17.6257 16.4682 17.6416C16.1658 17.7392 15.7783 18.1708 15.7783 19.3205C15.7783 19.6796 15.4949 19.886 15.2948 19.886H14.2128C13.8442 19.886 11.9243 19.7568 10.2233 17.9629C8.14117 15.7657 6.26692 11.3589 6.25117 11.3179C6.13305 11.0329 6.37717 10.8801 6.64335 10.8801H9.02947C9.34762 10.8801 9.45157 11.0738 9.52402 11.2455C9.60907 11.4455 9.92093 12.2409 10.4328 13.1355C11.2628 14.5939 11.7716 15.1861 12.1795 15.1861C12.256 15.1852 12.3311 15.1658 12.3984 15.1294C12.9307 14.8333 12.8315 12.9355 12.8079 12.5417C12.8079 12.4677 12.8063 11.6928 12.5338 11.3211C12.3385 11.0518 12.0062 10.9494 11.8046 10.9116C11.8862 10.799 11.9937 10.7077 12.118 10.6454C12.4834 10.4627 13.1418 10.4359 13.7954 10.4359H14.1593C14.868 10.4454 15.0507 10.4911 15.3074 10.5556C15.8272 10.6801 15.8382 11.0155 15.7925 12.1637C15.7783 12.4897 15.7642 12.8583 15.7642 13.293L15.7594 13.5954C15.7437 14.1797 15.7248 14.8428 16.1374 15.1153C16.1907 15.1504 16.2533 15.1685 16.317 15.1672C16.4603 15.1672 16.8919 15.1672 18.0605 13.1623C18.4196 12.5162 18.7327 11.8457 18.9977 11.1557C19.0213 11.1148 19.0906 10.9888 19.1725 10.9399C19.2336 10.9109 19.3002 10.8953 19.3678 10.8943H22.1728C22.4784 10.8943 22.6879 10.9399 22.7272 11.0581C22.7965 11.2455 22.7146 11.8172 21.4342 13.5513L20.8624 14.3057C19.7017 15.8272 19.7017 15.9044 20.9349 17.0588Z"
+                                        fill="#787876" />
+                                </svg>
+                                Вконтакте
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <div class="footer__privacy">
+                        <a href="#!">Политика конфиденциальности</a>
+                    </div>
+                    <div class="footer__tooltip">
+                        <button class="icon__parent">
+                            <span>Отказ от ответственности</span>
+                            <span class="icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.875 9.6875C1.875 5.37318 5.37318 1.875 9.6875 1.875C14.0018 1.875 17.5 5.37318 17.5 9.6875C17.5 14.0018 14.0018 17.5 9.6875 17.5C5.37318 17.5 1.875 14.0018 1.875 9.6875ZM9.6875 3.125C6.06354 3.125 3.125 6.06354 3.125 9.6875C3.125 13.3115 6.06354 16.25 9.6875 16.25C13.3115 16.25 16.25 13.3115 16.25 9.6875C16.25 6.06354 13.3115 3.125 9.6875 3.125Z"
+                                        fill="#787876" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.96875 8.59375C7.96875 8.24857 8.24857 7.96875 8.59375 7.96875H9.84375C10.1889 7.96875 10.4688 8.24857 10.4688 8.59375V13.125C10.4688 13.4702 10.1889 13.75 9.84375 13.75C9.49857 13.75 9.21875 13.4702 9.21875 13.125V9.21875H8.59375C8.24857 9.21875 7.96875 8.93893 7.96875 8.59375Z"
+                                        fill="#787876" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.5 13.2812C7.5 12.9361 7.77982 12.6562 8.125 12.6562H11.5625C11.9077 12.6562 12.1875 12.9361 12.1875 13.2812C12.1875 13.6264 11.9077 13.9062 11.5625 13.9062H8.125C7.77982 13.9062 7.5 13.6264 7.5 13.2812Z"
+                                        fill="#787876" />
+                                    <path
+                                        d="M9.6875 5.07812C9.48663 5.07812 9.29027 5.13769 9.12325 5.24929C8.95623 5.36089 8.82605 5.51951 8.74918 5.70509C8.67231 5.89067 8.6522 6.09488 8.69139 6.29189C8.73058 6.4889 8.82731 6.66987 8.96935 6.81191C9.11138 6.95394 9.29235 7.05067 9.48936 7.08986C9.68637 7.12905 9.89058 7.10894 10.0762 7.03207C10.2617 6.95519 10.4204 6.82502 10.532 6.658C10.6436 6.49098 10.7031 6.29462 10.7031 6.09375C10.7031 5.82439 10.5961 5.56606 10.4057 5.37559C10.2152 5.18513 9.95686 5.07812 9.6875 5.07812Z"
+                                        fill="#787876" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="tooltip">
+                            <p>
+                                Информация, представленная на этом сайте, предназначена только для информационных целей
+                                и не должна рассматриваться как финансовый, юридический или инвестиционный совет. Всегда
+                                консультируйтесь с квалифицированным специалистом перед принятием любых финансовых
+                                решений. Кроме того, мы можем получать компенсацию от рекламодателей или партнеров,
+                                представленных на этой странице, что может повлиять на размещение или содержание
+                                определенных предложений.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer__tooltip">
+                        <button class="icon__parent">
+                            <span>Пожаловаться на объявление</span>
+                            <span class="icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.875 9.6875C1.875 5.37318 5.37318 1.875 9.6875 1.875C14.0018 1.875 17.5 5.37318 17.5 9.6875C17.5 14.0018 14.0018 17.5 9.6875 17.5C5.37318 17.5 1.875 14.0018 1.875 9.6875ZM9.6875 3.125C6.06354 3.125 3.125 6.06354 3.125 9.6875C3.125 13.3115 6.06354 16.25 9.6875 16.25C13.3115 16.25 16.25 13.3115 16.25 9.6875C16.25 6.06354 13.3115 3.125 9.6875 3.125Z"
+                                        fill="#787876" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.96875 8.59375C7.96875 8.24857 8.24857 7.96875 8.59375 7.96875H9.84375C10.1889 7.96875 10.4688 8.24857 10.4688 8.59375V13.125C10.4688 13.4702 10.1889 13.75 9.84375 13.75C9.49857 13.75 9.21875 13.4702 9.21875 13.125V9.21875H8.59375C8.24857 9.21875 7.96875 8.93893 7.96875 8.59375Z"
+                                        fill="#787876" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.5 13.2812C7.5 12.9361 7.77982 12.6562 8.125 12.6562H11.5625C11.9077 12.6562 12.1875 12.9361 12.1875 13.2812C12.1875 13.6264 11.9077 13.9062 11.5625 13.9062H8.125C7.77982 13.9062 7.5 13.6264 7.5 13.2812Z"
+                                        fill="#787876" />
+                                    <path
+                                        d="M9.6875 5.07812C9.48663 5.07812 9.29027 5.13769 9.12325 5.24929C8.95623 5.36089 8.82605 5.51951 8.74918 5.70509C8.67231 5.89067 8.6522 6.09488 8.69139 6.29189C8.73058 6.4889 8.82731 6.66987 8.96935 6.81191C9.11138 6.95394 9.29235 7.05067 9.48936 7.08986C9.68637 7.12905 9.89058 7.10894 10.0762 7.03207C10.2617 6.95519 10.4204 6.82502 10.532 6.658C10.6436 6.49098 10.7031 6.29462 10.7031 6.09375C10.7031 5.82439 10.5961 5.56606 10.4057 5.37559C10.2152 5.18513 9.95686 5.07812 9.6875 5.07812Z"
+                                        fill="#787876" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="tooltip">
+                            <p>
+                                Вы можете пожаловаться на объявление, обратившись по номеру или почте в контактах
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__author">
+                Сделано в <a href="#!">Artect</a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
+
+
+    <!-- popup-->
+    <div class="popup popup__order">
+        <div class="popup__wrapper">
+            <div class="popup__inner">
+                <div class="popup__content">
+                    <button class="popup__close">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11.1219 9.00016L17.0594 3.06266C17.3412 2.78137 17.4997 2.39965 17.5 2.00149C17.5004 1.60332 17.3426 1.22133 17.0613 0.939536C16.78 0.657743 16.3983 0.499236 16.0001 0.498885C15.6019 0.498533 15.2199 0.656365 14.9381 0.937661L9.00065 6.87516L3.06315 0.937661C2.78136 0.655868 2.39916 0.497559 2.00065 0.497559C1.60213 0.497559 1.21994 0.655868 0.938149 0.937661C0.656356 1.21945 0.498047 1.60165 0.498047 2.00016C0.498047 2.39868 0.656356 2.78087 0.938149 3.06266L6.87565 9.00016L0.938149 14.9377C0.656356 15.2195 0.498047 15.6016 0.498047 16.0002C0.498047 16.3987 0.656356 16.7809 0.938149 17.0627C1.21994 17.3445 1.60213 17.5028 2.00065 17.5028C2.39916 17.5028 2.78136 17.3445 3.06315 17.0627L9.00065 11.1252L14.9381 17.0627C15.2199 17.3445 15.6021 17.5028 16.0006 17.5028C16.3992 17.5028 16.7814 17.3445 17.0631 17.0627C17.3449 16.7809 17.5033 16.3987 17.5033 16.0002C17.5033 15.6016 17.3449 15.2195 17.0631 14.9377L11.1219 9.00016Z"
+                                fill="#787876" />
+                        </svg>
+                    </button>
+                    <div class="popup__title">
+                        Название подрядчика
+                    </div>
+                    <div class="popup__subtitle">
+                        ИНН: 6568484615
+                    </div>
+                    <form action="#!">
+                        <div class="form__inner">
+                            <div class="form__field copy__sibling">
+                                <label>
+                                    <input type="text" value="+7 (901) 871-36-24" disabled>
+                                </label>
+                            </div>
+                            <div class="form__field copy">
+                                <button type="button">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.125 21.5H7.625C6.72989 21.5 5.87145 21.1444 5.23851 20.5115C4.60558 19.8785 4.25 19.0201 4.25 18.125V7.625C4.25 6.72989 4.60558 5.87145 5.23851 5.23851C5.87145 4.60558 6.72989 4.25 7.625 4.25H18.125C19.0201 4.25 19.8785 4.60558 20.5115 5.23851C21.1444 5.87145 21.5 6.72989 21.5 7.625V18.125C21.5 19.0201 21.1444 19.8785 20.5115 20.5115C19.8785 21.1444 19.0201 21.5 18.125 21.5Z"
+                                            fill="#516600" />
+                                        <path
+                                            d="M6.5 2.75H17.5569C17.3235 2.09246 16.8924 1.52322 16.3228 1.12038C15.7531 0.717547 15.0727 0.500842 14.375 0.5H3.875C2.97989 0.5 2.12145 0.855579 1.48851 1.48851C0.855579 2.12145 0.5 2.97989 0.5 3.875V14.375C0.500842 15.0727 0.717547 15.7531 1.12038 16.3228C1.52322 16.8924 2.09246 17.3235 2.75 17.5569V6.5C2.75 5.50544 3.14509 4.55161 3.84835 3.84835C4.55161 3.14509 5.50544 2.75 6.5 2.75Z"
+                                            fill="#516600" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="form__field">
+                                <button type="button" class="btn open-popup popup__close" data-popup="popup__callback">
+                                    Запросить обратный звонок
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup -->
+
+    <!-- popup-->
+    <div class="popup popup__callback">
+        <div class="popup__wrapper">
+            <div class="popup__inner">
+                <div class="popup__content">
+                    <button class="popup__close">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11.1219 9.00016L17.0594 3.06266C17.3412 2.78137 17.4997 2.39965 17.5 2.00149C17.5004 1.60332 17.3426 1.22133 17.0613 0.939536C16.78 0.657743 16.3983 0.499236 16.0001 0.498885C15.6019 0.498533 15.2199 0.656365 14.9381 0.937661L9.00065 6.87516L3.06315 0.937661C2.78136 0.655868 2.39916 0.497559 2.00065 0.497559C1.60213 0.497559 1.21994 0.655868 0.938149 0.937661C0.656356 1.21945 0.498047 1.60165 0.498047 2.00016C0.498047 2.39868 0.656356 2.78087 0.938149 3.06266L6.87565 9.00016L0.938149 14.9377C0.656356 15.2195 0.498047 15.6016 0.498047 16.0002C0.498047 16.3987 0.656356 16.7809 0.938149 17.0627C1.21994 17.3445 1.60213 17.5028 2.00065 17.5028C2.39916 17.5028 2.78136 17.3445 3.06315 17.0627L9.00065 11.1252L14.9381 17.0627C15.2199 17.3445 15.6021 17.5028 16.0006 17.5028C16.3992 17.5028 16.7814 17.3445 17.0631 17.0627C17.3449 16.7809 17.5033 16.3987 17.5033 16.0002C17.5033 15.6016 17.3449 15.2195 17.0631 14.9377L11.1219 9.00016Z"
+                                fill="#787876" />
+                        </svg>
+                    </button>
+                    <div class="popup__title">
+                        Название подрядчика
+                    </div>
+                    <div class="popup__subtitle">
+                        ИНН: 6568484615
+                    </div>
+                    <form action="#!">
+                        <div class="form__inner">
+                            <div class="form__field copy__sibling">
+                                <label>
+                                    <input type="text" value="+7 (901) 871-36-24" disabled>
+                                </label>
+                            </div>
+                            <div class="form__field copy">
+                                <button type="button">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.125 21.5H7.625C6.72989 21.5 5.87145 21.1444 5.23851 20.5115C4.60558 19.8785 4.25 19.0201 4.25 18.125V7.625C4.25 6.72989 4.60558 5.87145 5.23851 5.23851C5.87145 4.60558 6.72989 4.25 7.625 4.25H18.125C19.0201 4.25 19.8785 4.60558 20.5115 5.23851C21.1444 5.87145 21.5 6.72989 21.5 7.625V18.125C21.5 19.0201 21.1444 19.8785 20.5115 20.5115C19.8785 21.1444 19.0201 21.5 18.125 21.5Z"
+                                            fill="#516600" />
+                                        <path
+                                            d="M6.5 2.75H17.5569C17.3235 2.09246 16.8924 1.52322 16.3228 1.12038C15.7531 0.717547 15.0727 0.500842 14.375 0.5H3.875C2.97989 0.5 2.12145 0.855579 1.48851 1.48851C0.855579 2.12145 0.5 2.97989 0.5 3.875V14.375C0.500842 15.0727 0.717547 15.7531 1.12038 16.3228C1.52322 16.8924 2.09246 17.3235 2.75 17.5569V6.5C2.75 5.50544 3.14509 4.55161 3.84835 3.84835C4.55161 3.14509 5.50544 2.75 6.5 2.75Z"
+                                            fill="#516600" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="form__field w50">
+                                <label>
+                                    <span class="placeholder">Имя</span>
+                                    <input type="text" required>
+                                </label>
+                            </div>
+                            <div class="form__field w50">
+                                <label>
+                                    <span class="placeholder">Телефон</span>
+                                    <input type="tel" required>
+                                </label>
+                            </div>
+                            <div class="form__field">
+                                <button type="submit" class="btn">
+                                    Отправить
+                                </button>
+                            </div>
+                            <div class="form__field">
+                                <label class="check">
+                                    <input class="check__input" type="checkbox" required>
+                                    <span class="check__box"></span>
+                                    <span class="check__name">Нажимая на кнопку, <a href="#!">я принимаю условия
+                                            соглашения</a></span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup -->
+
+
+
+    <!-- svg sprite -->
+    <svg class="app-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol id="slide-prev" viewBox="0 0 10 16">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.829505 0.454505C1.26884 0.015165 1.98116 0.015165 2.4205 0.454505L9.1705 7.2045C9.60983 7.64385 9.60983 8.35616 9.1705 8.7955L2.4205 15.5455C1.98116 15.9848 1.26884 15.9848 0.829505 15.5455C0.390165 15.1062 0.390165 14.3938 0.829505 13.9545L6.78401 8L0.829505 2.0455C0.390165 1.60616 0.390165 0.893845 0.829505 0.454505Z" />
+        </symbol>
+    </svg>
+    <!-- svg sprite -->
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/fancybox.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
